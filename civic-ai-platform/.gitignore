@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+backend/.venv/
+backend/.python312/
+backend/civic.db
+backend/uploads/*
+!backend/uploads/.gitkeep
+frontend/node_modules/
+frontend/.next/
+frontend/out/

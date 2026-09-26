@@ -162,7 +162,12 @@ export default function UrgencyPriorityPanel() {
                   />
                   <Tooltip
                     cursor={{ fill: CHART_COLORS.mist }}
-                    formatter={(value: number) => [`${value.toFixed(1)}/10`, "Avg urgency"]}
+                    formatter={(value) => {
+                      const rawValue = Array.isArray(value) ? value[0] : value;
+                      const numericValue = Number(rawValue ?? 0);
+
+                      return [`${numericValue.toFixed(1)}/10`, "Avg urgency"];
+                    }}
                   />
                   <Bar
                     dataKey="urgency"

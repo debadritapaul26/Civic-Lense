@@ -118,7 +118,7 @@ function ClusterCard({
               >
                 <XAxis type="number" hide allowDecimals={false} />
                 <YAxis type="category" dataKey="category" width={72} axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: CHART_COLORS.ink }} />
-                <Tooltip cursor={{ fill: CHART_COLORS.mist }} formatter={(value: number) => [value, "Complaints"]} />
+                <Tooltip cursor={{ fill: CHART_COLORS.mist }} formatter={(value: any) => [value, "Complaints"]} />
                 <Bar
                   dataKey="complaints"
                   fill={CHART_COLORS.teal}

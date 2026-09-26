@@ -60,7 +60,12 @@ export default function BudgetChart({ allocations }: BudgetChartProps) {
             contentStyle={{ border: "1px solid rgba(17, 125, 120, 0.16)", borderRadius: 14, boxShadow: "0 12px 32px rgba(18, 36, 58, 0.14)", padding: "10px 14px" }}
             labelStyle={{ color: CHART_COLORS.ink, fontWeight: 700, marginBottom: 4 }}
             itemStyle={{ color: CHART_COLORS.teal, fontWeight: 700 }}
-            formatter={(value: number) => [`₹${value.toFixed(2)} cr`, "Allocated"]}
+            formatter={(value) => {
+              const rawValue = Array.isArray(value) ? value[0] : value;
+              const numericValue = Number(rawValue ?? 0);
+
+              return [`₹${numericValue.toFixed(2)} cr`, "Allocated"];
+            }}
           />
           <Bar
             dataKey="amount"
